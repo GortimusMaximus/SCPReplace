@@ -1,9 +1,5 @@
 ﻿using Exiled.API.Features;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SCPReplace
 {
@@ -16,8 +12,6 @@ namespace SCPReplace
 
             eventHandler = new EventHandler();
 
-            Exiled.Events.Handlers.Server.RoundStarted += eventHandler.OnRoundStarted;
-            Exiled.Events.Handlers.Server.RoundEnded += eventHandler.OnRoundEnded;
             Exiled.Events.Handlers.Player.Left += eventHandler.OnPlayerLeaving;
             base.OnEnabled();
         }
@@ -26,11 +20,8 @@ namespace SCPReplace
         {
             eventHandler = null;
 
-            Exiled.Events.Handlers.Server.RoundStarted -= eventHandler.OnRoundStarted;
-            Exiled.Events.Handlers.Server.RoundEnded -= eventHandler.OnRoundEnded;
             Exiled.Events.Handlers.Player.Left -= eventHandler.OnPlayerLeaving;
             base.OnDisabled();
         }
-
     }
 }
